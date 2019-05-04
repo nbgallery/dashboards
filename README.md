@@ -26,7 +26,7 @@ More generally on the immutable execution front, we're also interested in what w
  * Parameterizing notebooks for use in cron jobs and pipelines
  * Using notebooks as a web service API
   
-One of the questions we get when we talk about NaaS is if you don't need the interactive Jupyter interface, why use the notebook format at all?  If you need a cron job, why not a plain python script?  If you need a web app, why not Flask or Django?  The answer is that if the analysis was initial developed in a notebook, then the argument for re-engineering the solution needs to be compelling in order to justify the time and labor costs.  Our experience has been similar to that of Zillow, who found that [it wasn't worth re-writing R anlaytics in C++ or Java](https://www.infoworld.com/article/3060773/hot-property-how-zillow-became-the-real-estate-data-hub.html).
+One of the questions we get when we talk about NaaS is if you don't need the interactive Jupyter interface, why use the notebook format at all?  If you need a cron job, why not a plain python script?  If you need a web app, why not Flask or Django?  The answer is that if the analysis was initially developed in a notebook, then it may just be easier and cheaper to keep it that way.  You need to have a compelling argument for re-engineering the solution in order to justify the time and labor costs.  Our experience has been similar to that of Zillow, who found that [it wasn't worth re-writing R analytics in C++ or Java](https://www.infoworld.com/article/3060773/hot-property-how-zillow-became-the-real-estate-data-hub.html).
 
 Here are some NaaS-related projects that we've been tracking:
 
