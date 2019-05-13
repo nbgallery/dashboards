@@ -11,7 +11,7 @@ For example, to convert the nbparameterise [Fibonacci example](https://github.co
 ```
 ./nb2dashboard.py --url https://raw.githubusercontent.com/takluyver/nbparameterise/master/examples/Fibonacci.ipynb --name fibonacci --mode nbparameterise --build
 
-sudo docker run --rm -p 3131:3131 --rm nb2dashboard-fibonacci
+sudo docker run -p 3131:3131 --rm nb2dashboard-fibonacci
 ```
 
 To convert one of this repo's voila examples:
