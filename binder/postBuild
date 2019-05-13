@@ -1,2 +1,2 @@
-gem install --pre --local iruby
+gem install --user-install iruby
 iruby register
