@@ -1,2 +1,5 @@
+jupyter nbextension install --user --py voila
+jupyter nbextension enable --user --py voila
+
 gem install --user-install ffi-rzmq iruby erector
 ~/.gem/ruby/*/bin/iruby register
