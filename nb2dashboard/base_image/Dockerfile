@@ -1,4 +1,5 @@
 FROM jupyter/base-notebook
+LABEL maintainer="https://github.com/nbgallery/dashboards"
 
 USER jovyan
 
