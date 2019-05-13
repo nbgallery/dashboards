@@ -1,0 +1,12 @@
+# Simple test wrapper for nb2dashboard base image
+#  * mode parameter must be 'nbparameterise' or 'voila'
+#    * nbparameterise will launch on port 3131
+#    * voila will launch on port 8866
+#  * notebook must be in current directory
+# Example:
+#   sudo docker-run voila voila.ipynb
+
+mode=$1
+notebook=$2
+
+docker run --rm -p 8866:8866 -p 8888:8888 -p 3131:3131 -v $PWD:/home/jovyan/work nb2dashboard $mode /home/jovyan/work/$notebook
