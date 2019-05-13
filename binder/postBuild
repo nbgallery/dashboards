@@ -1,2 +1,2 @@
-gem install --user-install iruby
-iruby register
+gem install --user-install ffi-rzmq iruby erector
+~/.gem/ruby/*/bin/iruby register

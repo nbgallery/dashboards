@@ -1,2 +1,7 @@
+libczmq-dev
+libffi-dev
+libtool
+libzmq3-dev
+make
 ruby
 ruby-dev
