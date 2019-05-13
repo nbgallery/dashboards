@@ -1,2 +1,7 @@
+# Temporary files
 .ipynb_checkpoints/
+.*.swp
 *.png
+
+# Build dirs from nb2dashboard
+nb2dashboard-*/
