@@ -77,16 +77,66 @@ class NB2Dashboard(object):
             shutil.rmtree(self.build_dir)
         os.makedirs(self.build_dir)
 
+    # Remove ipydeps package installation and run during build instead
+    def groom_ipydeps(self):
+        for i in range(len(self.notebook.cells)):
+            cell = self.notebook.cells[i]
+            if cell.cell_type == 'code' and 'ipydeps' in cell.source:
+                output = os.path.join(self.build_dir, 'ipydeps_build.py')
+                with open(output, 'w') as f:
+                    f.write(cell.source)
+                self.dockerfile.add_file('ipydeps_build.py')
+                self.dockerfile.add_build_command('python3 ipydeps_build.py')
+                del self.notebook.cells[i]
+                break
+
+    # Move 'parameters'-tagged cells to top (papermill compatibility)
+    def groom_parameters(self):
+        first_code_cell = None
+        parameters_cell = None
+        for i in range(len(self.notebook.cells)):
+            cell = self.notebook.cells[i]
+            tags = cell.get('metadata', {}).get('tags', {})
+            if cell.cell_type != 'code':
+                continue
+            if first_code_cell is None:
+                first_code_cell = i
+            if 'parameters' in tags:
+                parameters_cell = i
+                break
+        if parameters_cell is not None:
+            cell = self.notebook.cells[parameters_cell]
+            del self.notebook.cells[parameters_cell]
+            self.notebook.cells.insert(first_code_cell, cell)
+
+    # Remove cells tagged with 'nb2dashboard/ignore'
+    def groom_ignored(self):
+        keepers = []
+        for cell in self.notebook.cells:
+            tags = cell.get('metadata', {}).get('tags', {})
+            if 'nb2dashboard/ignore' not in tags:
+                keepers.append(cell)
+        self.notebook.cells = keepers
+
     # Modify notebook for suitability with dashboard mode
     def groom_notebook(self):
+        # Run grooming functions
+        self.groom_ignored()
+        self.groom_ipydeps()
+        if self.mode == 'nbparameterise':
+            self.groom_parameters()
+
+        # Save notebook
         output = os.path.join(self.build_dir, self.notebook_filename)
-        nbformat.write(self.notebook, open(output, 'w'))
+        with open(output, 'w') as f:
+            nbformat.write(self.notebook, f)
         self.dockerfile.set_notebook(self.notebook_filename)
 
     # Use local notebook file
     def notebook_from_file(self, filename):
         self.notebook_filename = os.path.basename(filename)
-        self.notebook = nbformat.read(open(filename), as_version=4)
+        with open(filename) as f:
+            self.notebook = nbformat.read(f, as_version=4)
 
     # Fetch notebook from remote URL
     def notebook_from_url(self, url):
@@ -107,7 +157,8 @@ class NB2Dashboard(object):
     # Write Dockerfile to build dir
     def save_dockerfile(self):
         output = os.path.join(self.build_dir, 'Dockerfile')
-        open(output, 'w').write(str(self.dockerfile))
+        with open(output, 'w') as f:
+            f.write(str(self.dockerfile))
 
     # Prep all files and save to build dir
     def stage(self, args):
