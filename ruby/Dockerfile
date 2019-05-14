@@ -1,4 +1,4 @@
-# This Dockerfile rougly approximates how to get IRuby with widgets working in binder
+# This Dockerfile roughly approximates how to get IRuby with widgets working in binder
 FROM jupyter/base-notebook
 
 # Packages for apt.txt
