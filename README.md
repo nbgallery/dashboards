@@ -1,6 +1,14 @@
 # nbgallery/dashboards
 
-This repository contains various notes and experiments in Jupyter dashboarding.  Any code you find here may or may not be suitable for production.  We are definitely open to comments and suggestions, especially if we're doing something crazy, so please feel free to [open an issue](https://github.com/nbgallery/dashboards/issues/new) to give us feedback.
+## What's in this repo?
+
+This repository contains various notes and experiments in Jupyter dashboarding.  Any code you find here may or may not be suitable for production.  We are definitely open to comments and suggestions, especially if we're doing something crazy, so please feel free to [open an issue](https://github.com/nbgallery/dashboards/issues/new) to give us feedback.  A quick list of what's here:
+
+ * [nb2dashboard](nb2dashboard) - script to convert a single notebook to a dashboard in a docker image, using [nbparameterise](https://github.com/takluyver/nbparameterise) or [voila](https://github.com/QuantStack/voila)
+ * [Voila experiments](voila) (launchable in binder) - tinkering with things relevant to our use case below
+ * [Ruby widget demo](ruby) (launchable in binder) - quick demo of [IRuby::Input](https://github.com/SciRuby/iruby/tree/master/lib/iruby/input), for comparison with [ipywidgets](https://github.com/jupyter-widgets/ipywidgets)
+
+## Our use case for dashboards
 
 Our use case for Jupyter widgets and dashboards is a little different from what we tend to see in other organizations in the Jupyter community.  Our organization deals with a highly-regulated big data environment with two major constraints:
 
@@ -17,7 +25,7 @@ The data access restrictions of our environment have led to two effects that we'
 Our interest in dashboards is primarily motivated by two requirements:
 
  * Since many of our Jupyter users are non-coders, dashboards can lower the barrier to entry to the Jupyter platform.  The growing interest in dashboards across the Jupyter community is a reflection of the fact that this is not unique to our organization.
- * A number of dashboard solutions provide *immutable execution*, meaning the user cannot modify the code.  This may be important in regulated environments where the analysis needs to be approved before running in production.  In our hospital example, perhaps notebooks need to be vetted for HIPAA compliance before the data science team can release them for use by the doctors.
+ * Several dashboard solutions provide *immutable execution*, meaning the user cannot modify the code.  This may be important in regulated environments where the analysis needs to be approved before running in production.  In our hospital example, perhaps notebooks need to be vetted for HIPAA compliance before the data science team can release them for use by the doctors.
  
 More generally on the immutable execution front, we're also interested in what we're calling "Notebook as a Service" (NaaS).  The idea here is that once the data scientist has finalized the algorithms and analysis in a notebook, you no longer need the interactivity of the native Jupyter interface, and the notebook can be treated as an immutable code artifact.  That enables various applications:
  
@@ -26,7 +34,7 @@ More generally on the immutable execution front, we're also interested in what w
  * Parameterizing notebooks for use in cron jobs and pipelines
  * Using notebooks as a web service API
   
-One of the questions we get when we talk about NaaS is if you don't need the interactive Jupyter interface, why use the notebook format at all?  If you need a cron job, why not a plain python script?  If you need a web app, why not Flask or Django?  The answer is that if the analysis was initially developed in a notebook, then it may just be easier and cheaper to keep it that way.  You need to have a compelling argument for re-engineering the solution in order to justify the time and labor costs.  Our experience has been similar to that of Zillow, who found that [it wasn't worth re-writing R analytics in C++ or Java](https://www.infoworld.com/article/3060773/hot-property-how-zillow-became-the-real-estate-data-hub.html).
+One of the questions we get when we talk about NaaS is if you don't need the interactive Jupyter interface, why use the notebook format at all?  If you need a cron job, why not a plain python script?  If you need a web app, why not Flask or Django?  The answer is that if the analysis was initially developed in a notebook, then it may just be easier and cheaper to keep it that way, especially if the notebook's author already added a simple widget UI.  You need to have a compelling argument for re-engineering the solution in order to justify the time and labor costs.  Our experience in most cases has been similar to that of Zillow, who found that [it wasn't worth re-writing R analytics in C++ or Java](https://www.infoworld.com/article/3060773/hot-property-how-zillow-became-the-real-estate-data-hub.html).
 
 Here are some NaaS-related projects that we've been tracking:
 
