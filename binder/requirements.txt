@@ -1,5 +1,6 @@
 ipydeps
 ipympl
+ipython_blocking
 ipywidgets
 matplotlib
 pandas
