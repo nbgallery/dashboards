@@ -18,3 +18,7 @@ RUN \
   wget https://raw.githubusercontent.com/takluyver/nbparameterise/master/examples/htmlform.py && \
   wget https://raw.githubusercontent.com/takluyver/nbparameterise/master/examples/webapp.py -O nbparameterise && \
   chmod +x nbparameterise
+
+# Panel
+EXPOSE 5006
+RUN pip install panel

@@ -13,6 +13,12 @@ import requests
 
 # Simplified representation of a Dockerfile
 class Dockerfile(object):
+    commands = {
+        'voila': ['voila'],
+        'nbparameterise': ['nbparameterise'],
+        'panel': ['panel', 'serve']
+    }
+
     def __init__(self, mode):
         self.base_image = 'nb2dashboard'
         self.env = {}
@@ -57,7 +63,9 @@ class Dockerfile(object):
         for command in self.build_commands:
             lines.append('RUN ' + command)
         lines.append('')
-        lines.append('CMD ["{}", "/home/jovyan/{}"]'.format(self.mode, self.notebook))
+        cmd = self.commands[self.mode] + ['/home/jovyan/' + self.notebook]
+        cmd = ', '.join('"' + x + '"' for x in cmd)
+        lines.append('CMD [{}]'.format(cmd))
         lines.append('')
         return "\n".join(lines)
 
@@ -229,7 +237,7 @@ class NB2Dashboard(object):
 
 # Main
 if __name__ == '__main__':
-    modes = ['voila', 'nbparameterise']
+    modes = ['voila', 'nbparameterise', 'panel']
     parser = argparse.ArgumentParser(description='Build dashboard image from notebook')
     parser.add_argument('--name', help='image name suffix', required=True)
     parser.add_argument('--file', help='build from notebook file')

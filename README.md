@@ -41,6 +41,7 @@ Here are some NaaS-related projects that we've been tracking:
  * Dashboards
    * [Jupyter dashboards](https://github.com/jupyter/dashboards) and [dashboard server](https://github.com/jupyter-attic/dashboards_server) (inactive)
    * [Voila](https://github.com/QuantStack/voila)
+   * [Panel](https://github.com/pyviz/panel) ([blog](https://medium.com/@philipp.jfr/panel-announcement-2107c2b15f52))
    * [Appmode](https://github.com/oschuett/appmode)
    * [nbinteract](https://github.com/SamLau95/nbinteract)
  * Headless execution and parameterization
