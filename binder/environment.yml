@@ -8,3 +8,7 @@ dependencies:
   - pandas
   - panel
   - voila
+  - pip
+  - pip:
+    - ipydeps
+    - ipython_blocking
