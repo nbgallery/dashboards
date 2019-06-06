@@ -1,0 +1,10 @@
+name: voila
+channels:
+  - conda-forge
+dependencies:
+  - ipympl
+  - ipywidgets
+  - matplotlib
+  - pandas
+  - panel
+  - voila
