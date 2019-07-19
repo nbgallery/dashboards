@@ -1,5 +1,7 @@
 # nbgallery/dashboards
 
+[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
+
 ## What's in this repo?
 
 This repository contains various notes and experiments in Jupyter dashboarding.  Any code you find here may or may not be suitable for production.  We are definitely open to comments and suggestions, especially if we're doing something crazy, so please feel free to [open an issue](https://github.com/nbgallery/dashboards/issues/new) to give us feedback.  A quick list of what's here:
@@ -50,3 +52,4 @@ Here are some NaaS-related projects that we've been tracking:
    * [PPExtensions](https://github.com/paypal/PPExtensions)
  * Notebooks as web APIs
    * [Kernel Gateway's http mode](https://jupyter-kernel-gateway.readthedocs.io/en/latest/http-mode.html)
+   * [notebook_restified](https://github.com/kafonek/notebook_restified)
