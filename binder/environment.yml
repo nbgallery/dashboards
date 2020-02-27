@@ -8,9 +8,9 @@ dependencies:
   - matplotlib
   - pandas
   - panel
-  - qgrid
   - voila
   - pip
   - pip:
     - ipydeps
     - ipython_blocking
+    - qgrid
