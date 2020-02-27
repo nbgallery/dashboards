@@ -2,11 +2,13 @@ name: voila
 channels:
   - conda-forge
 dependencies:
+  - ipyleaflet
   - ipympl
   - ipywidgets
   - matplotlib
   - pandas
   - panel
+  - qgrid
   - voila
   - pip
   - pip:

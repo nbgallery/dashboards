@@ -1,5 +1,7 @@
 jupyter nbextension install --user --py voila
 jupyter nbextension enable --user --py voila
+jupyter nbextension enable --user --py qgrid
+jupyter nbextension enable --user --py ipyleaflet
 
 gem install --user-install ffi-rzmq iruby erector
 ~/.gem/ruby/*/bin/iruby register
