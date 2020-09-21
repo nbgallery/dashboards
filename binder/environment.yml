@@ -8,7 +8,7 @@ dependencies:
   - matplotlib
   - pandas
   - panel
-  - voila
+  - voila=0.2
   - pip
   - pip:
     - ipydeps

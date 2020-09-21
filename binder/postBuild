@@ -3,5 +3,9 @@ jupyter nbextension enable --user --py voila
 jupyter nbextension enable --user --py qgrid
 jupyter nbextension enable --user --py ipyleaflet
 
+mkdir -p ~/.jupyter
+echo 'VoilaConfiguration.enable_nbextensions=True' >> ~/.jupyter/jupyter_notebook_config.py
+sed -i $CONDA_DIR/envs/notebook/share/jupyter/voila/templates/base/voila_setup.macro.html.j2 -e '/requirejs.config/adefine("base/js/dialog", [], () => {})'
+
 gem install --user-install ffi-rzmq iruby erector
 ~/.gem/ruby/*/bin/iruby register
