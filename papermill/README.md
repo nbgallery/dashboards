@@ -1,5 +1,7 @@
 # Voila/papermill notebook runner
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nbgallery/dashboards/master?filepath=papermill%2Fnotebook-runner.ipynb)
+
 ## Use case
 
 Suppose you wrote a notebook in a exploratory, linear style, and now you want to share it with colleagues (or "productionize" it) as a standalone [Voila](https://voila.readthedocs.io/en/stable/) dashboard.  However, your input data isn't static -- you need to get some things from the user right up front, like database credentials and query parameters.  So you need some input widgets and a "Go!" button, but now you have to refactor your notebook to use callbacks, and you lose some of the readability and maintainability that makes notebooks so great.  How do you get the best of both worlds?  
