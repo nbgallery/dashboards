@@ -8,6 +8,7 @@ dependencies:
   - matplotlib
   - pandas
   - panel
+  - papermill
   - voila=0.2
   - pip
   - pip:
