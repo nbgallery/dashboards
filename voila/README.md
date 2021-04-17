@@ -4,8 +4,8 @@ This directory contains some example notebooks relevant to our [use case](../REA
 
 Launch the collection here in the Jupyter notebook UI:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nbgallery/dashboards/master?urlpath=tree/voila)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nbgallery/dashboards/main?urlpath=tree/voila)
 
 Or launch them here as Voila dashboards:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nbgallery/dashboards/master?urlpath=voila/tree/voila)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nbgallery/dashboards/main?urlpath=voila/tree/voila)
